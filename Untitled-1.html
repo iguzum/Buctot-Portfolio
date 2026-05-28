@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ian C Buctot Portfolio</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:
+      radial-gradient(circle at center,#731264 0%, #2c0723 40%, #170212 100%);
+      color:white;
+    }
+
+    /* NAVBAR */
+    nav{
+      width:100%;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:1000;
+      background:#081224;
+      padding:20px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:0 0 15px rgba(0,0,0,0.5);
+    }
+
+    nav h1{
+      color:#e839ff;
+      font-size:35px;
+      font-weight:bold;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:35px;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      font-size:18px;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#ff39f8;
+    }
+
+    /* HERO */
+    .hero{
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:100px 20px;
+    }
+
+    .hero img{
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      border:5px solid #f839ff;
+      object-fit:cover;
+      margin-bottom:30px;
+      box-shadow:0 0 30px rgba(255, 57, 225, 0.6);
+    }
+
+    .hero h2{
+      font-size:75px;
+      margin-bottom:15px;
+    }
+
+    .hero span{
+      color:#ff39fc;
+    }
+
+    .hero p{
+      font-size:28px;
+      color:#ff39e8;
+      margin-bottom:15px;
+      font-weight:bold;
+    }
+
+    .hero small{
+      font-size:24px;
+      color:#ddd;
+      margin-bottom:35px;
+    }
+
+    .btn{
+      padding:18px 45px;
+      background:#ff39db;
+      color:black;
+      border:none;
+      border-radius:12px;
+      font-size:24px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+      text-decoration:none;
+    }
+
+    .btn:hover{
+      transform:scale(1.05);
+      background:#ff5fdc;
+    }
+
+    /* SECTIONS */
+    section{
+      padding:120px 8%;
+    }
+
+    .title{
+      text-align:center;
+      font-size:50px;
+      color:#ff39ef;
+      margin-bottom:50px;
+    }
+
+    /* ABOUT */
+    .about-box{
+      max-width:900px;
+      margin:auto;
+      background:rgba(255,255,255,0.05);
+      padding:40px;
+      border-radius:20px;
+      text-align:center;
+      font-size:25px;
+      backdrop-filter:blur(5px);
+    }
+
+    /* PROJECTS */
+    .project-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:30px;
+    }
+
+    .project-card{
+      background:rgba(255, 255, 255, 0.05);
+      border-radius:20px;
+      overflow:hidden;
+      transition:0.3s;
+      box-shadow:0 0 15px rgba(0,0,0,0.3);
+    }
+
+    .project-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .project-card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .project-content{
+      padding:25px;
+      text-align:center;
+    }
+
+    .project-content h3{
+      font-size:30px;
+      margin-bottom:10px;
+    }
+
+    .project-content p{
+      font-size:20px;
+      color:#ddd;
+    }
+
+    /* SKILLS */
+    .skills-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+    }
+
+    .skill-box{
+      background:rgba(255, 255, 255, 0.05);
+      padding:35px;
+      border-radius:20px;
+      text-align:center;
+      transition:0.3s;
+    }
+
+    .skill-box:hover{
+      transform:scale(1.05);
+      background:rgba(255, 57, 255, 0.15);
+    }
+
+    .skill-box h3{
+      font-size:35px;
+      margin-bottom:10px;
+    }
+
+    .skill-box p{
+      font-size:20px;
+      color:#8b00a6;
+    }
+
+    /* CONTACT */
+    .contact-form{
+      max-width:800px;
+      margin:auto;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea{
+      width:100%;
+      padding:20px;
+      background:#3b1b34;
+      border:none;
+      border-radius:12px;
+      color:white;
+      font-size:18px;
+    }
+
+    .contact-form textarea{
+      resize:none;
+      height:180px;
+    }
+
+    .contact-form button{
+      padding:18px;
+      border:none;
+      border-radius:12px;
+      background:#ff39f2;
+      font-size:22px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .contact-form button:hover{
+      background:#ff5fcc;
+    }
+
+    /* FOOTER */
+    footer{
+      text-align:center;
+      padding:30px;
+      background:#240223;
+      font-size:18px;
+      margin-top:60px;
+    }
+
+    /* MOBILE */
+    @media(max-width:768px){
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav h1{
+        font-size:28px;
+      }
+
+      .hero h2{
+        font-size:45px;
+      }
+
+      .hero p{
+        font-size:22px;
+      }
+
+      .hero small{
+        font-size:18px;
+      }
+
+      .title{
+        font-size:38px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <h1>Ian C Buctot.</h1>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <img src="Untitled.png" alt="Profile">
+
+    <h2>Hi, I'm <span>Ian C Buctot</span></h2>
+
+    <p>Front-End Developer | UI Designer | Game Creator</p>
+
+    <small>
+      I create modern websites, games, and digital experiences.
+    </small>
+
+    <a href="#projects" class="btn">View My Work</a>
+
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+
+    <h2 class="title">About Me</h2>
+
+    <div class="about-box">
+      I am a passionate student developer focused on web design,
+      UI/UX, and game development using Python and modern web technologies.
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+
+    <h2 class="title">Projects</h2>
+
+    <div class="project-container">
+
+      <div class="project-card">
+        <img src="Screenshot (2).png">
+
+        <div class="project-content">
+          <h3>Cockroach RUN</h3>
+
+          <p>
+            Arcade survival game built using Python.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="download (11).png">
+
+        <div class="project-content">
+          <h3>Modern Website</h3>
+
+          <p>
+            Responsive website project with modern UI design.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="1.jpg">
+
+        <div class="project-content">
+          <h3>Portfolio UI</h3>
+
+          <p>
+            Creative personal portfolio with smooth layout.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+
+    <h2 class="title">My Skills</h2>
+
+    <div class="skills-container">
+
+      <div class="skill-box">
+        <h3>HTML</h3>
+        <p>Structure websites</p>
+      </div>
+
+      <div class="skill-box">
+        <h3>CSS</h3>
+        <p>Design modern UI</p>
+      </div>
+
+      <div class="skill-box">
+        <h3>Python</h3>
+        <p>Game development</p>
+      </div>
+
+      <div class="skill-box">
+        <h3>Figma</h3>
+        <p>UI/UX design</p>
+      </div>
+
+      <div class="skill-box">
+        <h3>Pygame</h3>
+        <p>2D game creation</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+
+    <h2 class="title">Contact Me</h2>
+
+    <form class="contact-form">
+
+      <input type="text" placeholder="Your Name">
+
+      <input type="email" placeholder="Your Email">
+
+      <textarea placeholder="Your Message"></textarea>
+
+      <button type="submit">Send Message</button>
+
+    </form>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Ian C Buctot Portfolio
+  </footer>
+
+</body>
+</html>
